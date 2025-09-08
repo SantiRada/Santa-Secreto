@@ -1,0 +1,178 @@
+:root{
+    --box-size: 100px;
+
+    --line: #ccc;
+    --text: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Jersey 25', sans-serif;
+    font-weight: 100;
+}
+html{
+    font-size: 18px;
+}
+body{
+    min-height: 100vh;
+    background: linear-gradient(hsla(0, 0%, 100%, .1) 1px, transparent 0), linear-gradient(270deg, hsla(0, 0%, 100%, .1) 1px, transparent 0), url(images/bg.webp), #00381f;
+    background-size: var(--box-size) var(--box-size);
+    background-position: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    max-width: 100%;
+    overflow: hidden;
+    padding-inline: 6%;
+}
+.sector-logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(images/lana.png), #00381f;
+    background-size: 100px 100px;
+    background-repeat: repeat;
+    box-shadow: 0px 0px 10px #00000050;
+    border: 10px solid #00381f70;
+    padding-block: 1rem;
+}
+@media (max-width: 550px){
+    .sector-logo { padding-block: .5rem; }
+}
+.logo{
+    width: 100%;
+    padding: 1rem;
+    max-width: 400px;
+    transform: rotateZ(-2.5deg);
+}
+h1{
+    font-size: 2rem;
+    color: #fff;
+}
+h3{
+    font-size: 1.5rem;
+    color: #F0DB4E;
+    transform: rotateZ(3deg);
+}
+form h3, .center-data{
+    font-size: 1.2rem;
+    text-align: center;
+    padding-inline: 12%;
+    margin-block: 1rem;
+}
+h1 span { color: #F0DB4E; }
+#user{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.chip-input{
+    border-radius: 8px;
+    font-size: 1.5rem;
+    border: 1px dashed var(--line);
+    color: var(--text);
+    background-color: transparent;
+    min-height: 70px;
+    text-align: center;
+    resize: none;
+    field-sizing: content;
+    width: 100%;
+    padding-block: 1rem;
+    max-height: 200px;
+}
+.chip-input::placeholder { color: #ffffff50 }
+.chip-input:focus { outline: 1px dashed #F0DB4E; }
+.chip-user{
+    border-radius: 8px;
+    font-size: 1.5rem;
+    border: 1px dashed var(--line);
+    color: var(--text);
+    transition: all .2s ease-in-out;
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chip-user:hover{
+    transform: scale(1.1);
+    border-style: solid;
+    box-shadow: 0px 5px 25px #00000025;
+}
+.cross-out{
+    border-radius: 8px;
+    font-size: 1.5rem;
+    border: 1px dashed var(--line);
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff80 !important;
+    transform: scale(0.9);
+    position: relative;
+}
+.cross-out::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%) rotateZ(-5deg);
+    left: 50%;
+    width: 50%;
+    height: 4px;
+    background-color: #EA4F3D;
+}
+.roulette { margin-top: -4rem; }
+.santa { margin-top: 2rem; }
+.final{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #EA4F3D;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
+    font-size: 5rem;
+    letter-spacing: 2px;
+    transform: rotateZ(3deg);
+}
+small{
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: #ffffffcc;
+    letter-spacing: 1px;
+}
+em{
+    color: #EA4F3D;
+    letter-spacing: 2px;
+    font-style: normal;
+}
+.center { text-align: center; }
+.chip { width: 100%; }
+.button{
+    padding-block: .75rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #EA4F3D;
+    padding-inline: 2rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: #FFF;
+}
