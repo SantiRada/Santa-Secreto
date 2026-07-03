@@ -1,18 +1,18 @@
 <?php 
 
-    // $con = mysqli_connect("localhost", "gamesdev_admin", "Mardel/2024", "gamesdev_games");
-    $con = mysqli_connect("localhost", "root", "", "santa-secreto");
+    $con = mysqli_connect("localhost", "u391462009_santiagorada", "SantiagoRada/2026", "u391462009_santiagorada");
+    // $con = mysqli_connect("localhost", "root", "", "santa-secreto");
     mysqli_set_charset($con, "utf8mb4");
 
     $room = $_GET['room'] ?? 0;
     $player = $_GET['player'] ?? "";
 
-    $search = "select * from santas where name = '".$player."' and id_room = '".$room."';";
+    $search = "select * from ss_santas where name = '".$player."' and id_room = '".$room."';";
     $resSearch = mysqli_query($con, $search);
     $rowSearch = mysqli_fetch_assoc($resSearch);
 
     if($rowSearch['goal'] == -1):
-        $players = mysqli_query($con, "select * from santas where selected = 0 and id_room = '".$room."' order by name asc;");
+        $players = mysqli_query($con, "select * from ss_santas where selected = 0 and id_room = '".$room."' order by name asc;");
     
         $id = 0;
         $playerFinal = "";
@@ -31,11 +31,11 @@
         } while($playerFinal == "" || $playerFinal == $player);
     
         // Guarda a quién le tocó el PLAYER
-        $newData = "update santas set goal = '".$id."', nameGoal = '".$playerFinal."' where name = '".$player."' and id_room = '".$room."';";
+        $newData = "update ss_santas set goal = '".$id."', nameGoal = '".$playerFinal."' where name = '".$player."' and id_room = '".$room."';";
         mysqli_query($con, $newData);
     
         // GUARDA EL PLAYER YA SELECCIONADO
-        $prevPlayer = "update santas set selected = 1 where id = '".$id."';";
+        $prevPlayer = "update ss_santas set selected = 1 where id = '".$id."';";
         mysqli_query($con, $prevPlayer);
     endif;
 ?>
@@ -44,7 +44,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santa Secreto 2024</title>
+    <title>Santa Secreto 2026</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

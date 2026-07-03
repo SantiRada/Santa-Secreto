@@ -4,21 +4,21 @@
 
     $dir = $_GET['dir'] ?? "";
 
-    // $con = mysqli_connect("localhost", "gamesdev_admin", "Mardel/2024", "gamesdev_games");
-    $con = mysqli_connect("localhost", "root", "", "santa-secreto");
+    $con = mysqli_connect("localhost", "u391462009_santiagorada", "SantiagoRada/2026", "u391462009_santiagorada");
+    // $con = mysqli_connect("localhost", "root", "", "santa-secreto");
     mysqli_set_charset($con, "utf8mb4");
 
     if(isset($_POST['create'])):
         $content = $_POST['content'] ?? "";
         $players = explode(',', $content);
 
-        $searchroom = "select * from santas order by id desc limit 1;";
+        $searchroom = "select * from ss_santas order by id desc limit 1;";
         $resSearch = mysqli_query($con, $searchroom);
         $rowSearch = mysqli_fetch_assoc($resSearch);
         $id = $rowSearch['id_room'] + 1;
 
         for($i = 0; $i < count($players); $i++):
-            $newroom = "insert into santas (id_room, name, goal, selected) values ('".$id."','".$players[$i]."','-1', '0');";
+            $newroom = "insert into ss_santas (id_room, name, goal, selected) values ('".$id."','".$players[$i]."','-1', '0');";
             $sendRoom = mysqli_query($con, $newroom);
         endfor;
 
@@ -36,7 +36,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santa Secreto 2024</title>
+    <title>Santa Secreto 2026</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +59,7 @@
         </form>
     <?php elseif($dir == "send"): ?>
         <h3 class="center-data">¡Ya puedes enviarle este link a todos los jugadores!</h3>
-        <textarea disabled id="content-copy" class="chip-input">https://gamesdev.com.ar/Santa-Secreto/index.php?room=<?php echo $_GET['id']; ?></textarea>
+        <textarea disabled id="content-copy" class="chip-input">https://santiagorada.com/santa-secreto/index.php?room=<?php echo $_GET['id']; ?></textarea>
         <button onclick="copyToClipboard()" class="button">Copiar</button>
     <?php else: ?>
         <a href="index.php?dir=create-room" class="chip-user chip">Crear nueva sala</a>

@@ -1,18 +1,18 @@
 <?php
     $room = $_GET['room'] ?? "";
 
-    // $con = mysqli_connect("localhost", "gamesdev_admin", "Mardel/2024", "gamesdev_games");
-    $con = mysqli_connect("localhost", "root", "", "santa-secreto");
+    $con = mysqli_connect("localhost", "u391462009_santiagorada", "SantiagoRada/2026", "u391462009_santiagorada");
+    // $con = mysqli_connect("localhost", "root", "", "santa-secreto");
     mysqli_set_charset($con, "utf8mb4");
 
-    $players = mysqli_query($con, "select * from santas where id_room = '".$room."' order by name asc;");
+    $players = mysqli_query($con, "select * from ss_santas where id_room = '".$room."' order by name asc;");
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santa Secreto 2024</title>
+    <title>Santa Secreto 2026</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
